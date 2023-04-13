@@ -1,0 +1,13 @@
+//rich-rule fw with tcp
+firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" source address="118.70.170.88" port protocol="tcp" port="22" accept'
+
+//remove rule default
+ firewall-cmd --permanent --remove-service=ssh
+ 
+ //rich-rule df
+ firewall-cmd --permanent --zone=public --add-rich-rule='rule family="ipv4" source address="10.10.10.0/24" accept'
+ firewall --reload
+ firewall-cmd --list-all
+ 
+ //add zone df
+ firewall-cmd --permanent --zone=public --add-port=80/tcp
